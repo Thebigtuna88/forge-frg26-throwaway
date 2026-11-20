@@ -1,0 +1,14 @@
+name: frg26-s2
+on:
+  push:
+    branches: [main, 'frg26-s2-*']
+permissions: {}
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: frg26-test
+    steps:
+      - name: Report the dummy value's length only
+        env:
+          V: ${{ secrets.FRG26_DUMMY }}
+        run: echo "FRG26-S2 value length ${#V}"
